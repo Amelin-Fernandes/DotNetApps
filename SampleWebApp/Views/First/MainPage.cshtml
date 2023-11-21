@@ -1,0 +1,40 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+<h1>This is the Main Page</h1>
+<hr/>
+<h3>What is Razor?</h3>
+<h4>ANS: AnyLanguage + HTML. In our case, C# + HTML</h4>
+<hr/>
+<h5>To add C# code to HTML use at-the-rate symbol. Use 'at-the-rate with braces for multiline C# code</h5>
+<hr/>
+@{
+    var message = "Hello Razor!";
+}
+<input type="text" value="@message"/>
+<hr/>
+<button onclick="alert('Ok')">Ok</button>
+<span style="background-color:green; color: yellow">@ViewBag.ReturnValue</span> @*viewbag takes message from controller and post it over here. It is a bag full of variables*@
+<hr/>
+
+@{
+    List<string> names = new List<string>();
+    names.Add("Reena");
+    names.Add("Beena");
+    names.Add("Leena");
+}
+
+<table>
+    <tr>
+        <td>Name</td>
+    </tr>
+
+@foreach (var name in names)
+{
+    <tr>
+        <td>
+            @Html.TextBoxFor(n=>name) @*Html helper. This function compiles into Html code*@
+        </td>
+    </tr>
+}
+</table>
